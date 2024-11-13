@@ -192,7 +192,7 @@ export default function BatallaNaval() {
 
   const resetGame = useCallback(() => {
     const newBoard = Array(10).fill(null).map(() => 
-      Array(10).fill(null).map(() => ({ type: 'empty', hit: false }))
+      Array(10).fill(null).map(() => ({ type: 'empty' as const, hit: false }))
     )
     setBoard(newBoard)
     setShips([])
