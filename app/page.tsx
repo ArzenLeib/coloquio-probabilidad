@@ -124,11 +124,11 @@ export default function BatallaNaval() {
         
         if (hitShip.type === 3) reward = 10
         else if (hitShip.type === 2) reward = 20
-        else if (hitShip.type === 1) reward = 300
+        else if (hitShip.type === 1) reward = 200
 
         if (hitShip.hits === hitShip.type) {
-          if (hitShip.type === 3) reward = 100
-          else if (hitShip.type === 2) reward = 200
+          if (hitShip.type === 3) reward = 50
+          else if (hitShip.type === 2) reward = 100
           newMessage = `¡Hundiste un barco de ${hitShip.type} casillas! Ganaste $${reward}`
         } else {
           newMessage = `¡Le diste a un barco de ${hitShip.type} casillas! Ganaste $${reward}`
@@ -164,7 +164,7 @@ export default function BatallaNaval() {
       acierto: acierto,
       gano: newShips.every(ship => ship.hits === ship.type),
       dinero: money + reward,
-  };
+    };
 
   try {
     await fetch('/api/datos-naval', {
@@ -223,6 +223,7 @@ export default function BatallaNaval() {
           min={1}
           max={money}
           className="w-24 mr-2"
+          disabled={true}
         />
         <span>Apuesta por intento</span>
       </div>
