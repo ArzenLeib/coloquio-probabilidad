@@ -1,5 +1,4 @@
-![imagen](https://github.com/user-attachments/assets/31bf8edb-d73c-4c9a-984c-3e3deab9f229)
-
+![imagen](https://github.com/user-attachments/assets/e0069f52-c842-4d99-8498-46ad3d55533f)
 ## Getting Started
 
 First, run the development server:
