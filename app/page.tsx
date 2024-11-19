@@ -212,7 +212,7 @@ export default function BatallaNaval() {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container p-4">
       <h1 className="text-2xl font-bold mb-4">Batalla Naval</h1>
       <div className="mb-4">Dinero: ${money}</div>
       <div className="mb-4">
@@ -227,21 +227,23 @@ export default function BatallaNaval() {
         />
         <span>Apuesta por intento</span>
       </div>
-      <div className="grid grid-cols-10 gap-0.5 mb-4">
-        {board.map((row, rowIndex) =>
-          row.map((cell, colIndex) => (
-            <button
-              key={`${rowIndex}-${colIndex}`}
-              className={`w-7 h-7 border ${
-                cell.hit && cell.type === 'ship' ? 'bg-red-500' :
-                cell.hit ? 'bg-blue-500' :
-                'bg-gray-200'
-              }`}
-              onClick={() => handleCellClick(rowIndex, colIndex)}
-              disabled={gameOver || cell.hit || autoPlay}
-            />
-          ))
-        )}
+      <div className='flex justify-center'>
+        <div className="grid grid-cols-10 gap-0.5 mb-4 w-fit">
+          {board.map((row, rowIndex) =>
+            row.map((cell, colIndex) => (
+              <button
+                key={`${rowIndex}-${colIndex}`}
+                className={`w-7 h-7 border ${
+                  (gameOver && cell.type === 'ship') || (cell.hit && cell.type === 'ship') ? 'bg-red-500' :
+                  cell.hit ? 'bg-blue-500' :
+                  'bg-gray-200'
+                }`}
+                onClick={() => handleCellClick(rowIndex, colIndex)}
+                disabled={gameOver || cell.hit || autoPlay}
+              />
+            ))
+          )}
+        </div>
       </div>
       <div className="mb-4">{message}</div>
       <div className="flex gap-4">
